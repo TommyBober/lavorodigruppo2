@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
 
         public override string ToString()  //no input, output string
         {
-            return nome + " " + cognome + " " + dataNascita;
+            return nome + " " + cognome;
         }
 
         public string Describe() //no input, output string
@@ -34,26 +34,21 @@ namespace WindowsFormsApplication1
             return output;
         }
 
-        public void describe(TextBox t) // funzione per describe in testbox
-        {
-            t.Text = Describe();
-        }
-
         public string DescribeBook() //no input, output string 
         {
-            string s = "";
+            string output = "";
             if (libriPrestati.Count == 0)
             {
-                s = "questo utente non possiede libri in prestito.";
+                output = "questo utente non possiede libri in prestito.";
             }
             else
             {
                 foreach (Libro l in libriPrestati)
                 {
-                    s = l.Describe() + "\r\n";
+                    output = l.Describe() + "\r\n";
                 }
             }
-            return s;
+            return output;
         }
 
         public User(string nome, string cognome, string codiceF, DateTime dataNascita) //costruttore

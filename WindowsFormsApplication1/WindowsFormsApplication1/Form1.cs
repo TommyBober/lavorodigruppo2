@@ -21,14 +21,44 @@ namespace WindowsFormsApplication1
         {
             for (int i = 0; i < 5; i++)
             {
-                listNomi.Items.Add(Seeder.generateUser().ToString());
-                listLibri.Items.Add(Seeder.generateLibri().ToString()); // sostituito titolo con to string 
+                listNomi.Items.Add(Seeder.generateUser());
+                listLibri.Items.Add(Seeder.generateLibri()); // sostituito titolo con to string 
             }
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void listNomi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBoxNome.Text = listNomi.SelectedItem.ToString();
+        }
+
+        private void textBoxNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void libroButton_Click(object sender, EventArgs e)
+        {
+            textBoxLibro.Text = listLibri.SelectedItem.ToString();
+        }
+
+        private void prestaButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private User addUser(User u)
+        {
+            users
         }
     }
 }
