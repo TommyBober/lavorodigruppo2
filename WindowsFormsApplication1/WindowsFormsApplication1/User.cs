@@ -11,14 +11,14 @@ namespace WindowsFormsApplication1
     class User
     {
         public List<Libro> libriPrestati;
-        string _nome;
-        string nome { get { return _nome; } set { } }
+        private string _nome;
+        public string nome { get { return _nome; } set { } }
 
-        string _cognome;
-        string cognome { get { return _cognome; } set { } }
+        private string _cognome;
+        public string cognome { get { return _cognome; } set { } }
 
-        string _CodiceF;
-        string CodiceF { get { return _CodiceF; } set { } }
+        private string _CodiceF;
+        public string CodiceF { get { return _CodiceF; } set { } }
 
         private DateTime _dataNascita;
         public DateTime dataNascita { get { return _dataNascita; } set { } }
@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1
 
         public string Describe() //no input, output string
         {
-            string output = nome + " " + cognome + " " + dataNascita + " " + CodiceF + " " + libriPrestati.Count;
+            string output = nome + " " + cognome + " " + dataNascita + " " + CodiceF ;
             return output;
         }
 

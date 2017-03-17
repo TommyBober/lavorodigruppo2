@@ -21,8 +21,8 @@ namespace WindowsFormsApplication1
         {
             for (int i = 0; i < 5; i++)
             {
-                listNomi.Items.Add(Seeder.generateUser());
-                listLibri.Items.Add(Seeder.generateLibri()); // sostituito titolo con to string 
+                listNomi.Items.Add(Seeder.generateUser() as User);
+                listLibri.Items.Add(Seeder.generateLibri() as Libro); // sostituito titolo con to string 
             }
         }
 
@@ -38,7 +38,8 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBoxNome.Text = listNomi.SelectedItem.ToString();
+            User u = listNomi.SelectedItem as User;
+            textBoxNome.Text = u.Describe();
         }
 
         private void textBoxNome_TextChanged(object sender, EventArgs e)
@@ -48,17 +49,16 @@ namespace WindowsFormsApplication1
 
         private void libroButton_Click(object sender, EventArgs e)
         {
-            textBoxLibro.Text = listLibri.SelectedItem.ToString();
+            Libro l = listLibri.SelectedItem as Libro;
+            textBoxLibro.Text = l.Describe();
         }
 
         private void prestaButton_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private User addUser(User u)
-        {
-            users
+            Libro l = listLibri.SelectedItem as Libro;
+            User u = listNomi.SelectedItem as User;
+            l.Presta(u);
+            textBoxPresta.Text = "Il libro " + l.titolo + " e' stato prestato a " + u.nome;
         }
     }
 }

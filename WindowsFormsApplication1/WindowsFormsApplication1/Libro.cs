@@ -47,7 +47,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                ricevitore.libriPrestati.Add(this);
+               // ricevitore.libriPrestati.Add(this);
                 prestato = true;
                 output = "questo libro e' stato presato a " + ricevitore.ToString();
                 return output;
