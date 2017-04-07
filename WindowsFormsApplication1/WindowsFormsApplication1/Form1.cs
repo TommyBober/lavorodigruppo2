@@ -64,11 +64,14 @@ namespace WindowsFormsApplication1
             {
                 textBox.Text = "Il libro " + l.titolo + " e' stato prestato a " + u.ToString();
             }
+            else if (u.listaLibri.Count == 6)
+            {
+                textBox.Text = "L'utente: " + u.ToString() + " ha raggiunto il limite massimo di libri che puo' possedere.";
+            }
             else
             {
                 textBox.Text = "Il libro " + l.titolo + " e' gia' stato prestato";
             }
-            
         }
     }
 }

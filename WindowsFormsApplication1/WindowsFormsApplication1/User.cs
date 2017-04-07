@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
 
         public string Describe()
         {
-            return nome + " " + cognome + ", data di nascita: " + dataNascita + Environment.NewLine
+            return nome + " " + cognome + ", Data di nascita: " + dataNascita.ToShortDateString() + Environment.NewLine
                 + "L'utente possiede " + listaLibri.Count + " libri: " + Environment.NewLine
                 + DescribeBook();
         }

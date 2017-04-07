@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Windows.Forms; // importato per potere richiamare elementi form 1
 
 namespace WindowsFormsApplication1
 {
@@ -21,6 +20,8 @@ namespace WindowsFormsApplication1
 
         public Boolean prestato { get; set; }
 
+        public User possessore { get; set; }
+
         public override string ToString()
         {
             return  titolo + ", "  + autore;
@@ -29,15 +30,26 @@ namespace WindowsFormsApplication1
 
         public string Describe()
         {
-            return "titolo: " + titolo + ", genere: " + genere + Environment.NewLine + 
-                "Autore: " + autore + ", isbn: " + isbn;
+            string output;
+            output = "Titolo: " + titolo + ", Genere: " + genere + Environment.NewLine +
+                "Autore: " + autore + ", ISBN: " + isbn + Environment.NewLine;
+            if (prestato)
+            {
+                output += "Questo Libro e' gia' stato prestato a " + possessore.ToString();
+            }
+            else
+            {
+                output += "Questo Libro e' disponibile per il prestito.";
+            }
+            return output;
         }
 
         public bool Presta(User u)
-        { 
+        {
+            possessore = u;
             if ((!prestato) && (u.listaLibri.Count < 6))
             {
-                u.listaLibri.Add(this);
+                possessore.listaLibri.Add(this);
                 prestato = true;
                 return true;
             }
