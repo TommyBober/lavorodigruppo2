@@ -19,11 +19,14 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 30; i++)
             {
-                listNomi.Items.Add(Seeder.generateUser() as User);
-                listLibri.Items.Add(Seeder.generateLibri() as Libro); // sostituito titolo con to string 
+                listNomi.Items.Add(Seeder.generateUser());
+                listLibri.Items.Add(Seeder.generateLibri());
             }
+            listLibri.SelectedIndex = 0;
+            listNomi.SelectedIndex = 0;
+            
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,7 +42,7 @@ namespace WindowsFormsApplication1
         private void button3_Click(object sender, EventArgs e)
         {
             User u = listNomi.SelectedItem as User;
-            textBoxNome.Text = u.Describe();
+            textBox.Text = u.Describe();
         }
 
         private void textBoxNome_TextChanged(object sender, EventArgs e)
@@ -50,15 +53,22 @@ namespace WindowsFormsApplication1
         private void libroButton_Click(object sender, EventArgs e)
         {
             Libro l = listLibri.SelectedItem as Libro;
-            textBoxLibro.Text = l.Describe();
+            textBox.Text = l.Describe();
         }
 
         private void prestaButton_Click(object sender, EventArgs e)
         {
             Libro l = listLibri.SelectedItem as Libro;
             User u = listNomi.SelectedItem as User;
-            l.Presta(u);
-            textBoxPresta.Text = "Il libro " + l.titolo + " e' stato prestato a " + u.nome;
+            if (l.Presta(u))
+            {
+                textBox.Text = "Il libro " + l.titolo + " e' stato prestato a " + u.ToString();
+            }
+            else
+            {
+                textBox.Text = "Il libro " + l.titolo + " e' gia' stato prestato";
+            }
+            
         }
     }
 }

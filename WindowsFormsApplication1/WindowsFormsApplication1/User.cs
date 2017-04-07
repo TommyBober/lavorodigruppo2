@@ -4,59 +4,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Windows.Forms; // importato per potere richiamare elementi form 1
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
     class User
     {
-        public List<Libro> libriPrestati;
-        private string _nome;
-        public string nome { get { return _nome; } set { } }
+        public List<Libro> listaLibri = new List<Libro>();
 
-        private string _cognome;
-        public string cognome { get { return _cognome; } set { } }
+        public string nome { get; set; }
 
-        private string _CodiceF;
-        public string CodiceF { get { return _CodiceF; } set { } }
+        public string cognome { get; set; }
 
-        private DateTime _dataNascita;
-        public DateTime dataNascita { get { return _dataNascita; } set { } }
+        public string codiceFiscale { get; set; }
 
-        public override string ToString()  //no input, output string
+        public DateTime dataNascita { get; set; }
+
+        public override string ToString()
         {
             return nome + " " + cognome;
         }
 
-        public string Describe() //no input, output string
+        public string Describe()
         {
-            string output = nome + " " + cognome + " " + dataNascita + " " + CodiceF ;
-            return output;
+            return nome + " " + cognome + ", data di nascita: " + dataNascita + Environment.NewLine
+                + "L'utente possiede " + listaLibri.Count + " libri: " + Environment.NewLine
+                + DescribeBook();
         }
 
-        public string DescribeBook() //no input, output string 
+        public string DescribeBook()
         {
             string output = "";
-            if (libriPrestati.Count == 0)
+            if (listaLibri.Count == 0)
             {
-                output = "questo utente non possiede libri in prestito.";
             }
             else
             {
-                foreach (Libro l in libriPrestati)
+                foreach (Libro l in listaLibri)
                 {
-                    output = l.Describe() + "\r\n";
+                    output += l.ToString() + Environment.NewLine;
                 }
             }
             return output;
         }
 
-        public User(string nome, string cognome, string codiceF, DateTime dataNascita) //costruttore
+        public User(string nome, string cognome, string codiceF, DateTime dataNascita) 
         {
-            _nome = nome;
-            _cognome = cognome;
-            _CodiceF = codiceF;
-            _dataNascita = dataNascita;
+            this.nome = nome;
+            this.cognome = cognome;
+            this.codiceFiscale = codiceFiscale;
+            this.dataNascita = dataNascita;
         }
     }
 }

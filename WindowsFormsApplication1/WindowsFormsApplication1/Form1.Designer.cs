@@ -33,15 +33,13 @@
             this.prestaButton = new System.Windows.Forms.Button();
             this.libroButton = new System.Windows.Forms.Button();
             this.userButton = new System.Windows.Forms.Button();
-            this.textBoxLibro = new System.Windows.Forms.TextBox();
-            this.textBoxPresta = new System.Windows.Forms.TextBox();
-            this.textBoxNome = new System.Windows.Forms.TextBox();
+            this.textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listNomi
             // 
             this.listNomi.FormattingEnabled = true;
-            this.listNomi.Location = new System.Drawing.Point(80, 0);
+            this.listNomi.Location = new System.Drawing.Point(12, 0);
             this.listNomi.Name = "listNomi";
             this.listNomi.Size = new System.Drawing.Size(212, 134);
             this.listNomi.TabIndex = 0;
@@ -50,7 +48,7 @@
             // listLibri
             // 
             this.listLibri.FormattingEnabled = true;
-            this.listLibri.Location = new System.Drawing.Point(298, 0);
+            this.listLibri.Location = new System.Drawing.Point(379, 0);
             this.listLibri.Name = "listLibri";
             this.listLibri.Size = new System.Drawing.Size(203, 134);
             this.listLibri.TabIndex = 1;
@@ -58,9 +56,9 @@
             // 
             // prestaButton
             // 
-            this.prestaButton.Location = new System.Drawing.Point(211, 237);
+            this.prestaButton.Location = new System.Drawing.Point(248, 90);
             this.prestaButton.Name = "prestaButton";
-            this.prestaButton.Size = new System.Drawing.Size(166, 23);
+            this.prestaButton.Size = new System.Drawing.Size(110, 44);
             this.prestaButton.TabIndex = 2;
             this.prestaButton.Text = "Presta";
             this.prestaButton.UseVisualStyleBackColor = true;
@@ -68,54 +66,38 @@
             // 
             // libroButton
             // 
-            this.libroButton.Location = new System.Drawing.Point(352, 140);
+            this.libroButton.Location = new System.Drawing.Point(248, 53);
             this.libroButton.Name = "libroButton";
             this.libroButton.Size = new System.Drawing.Size(110, 23);
             this.libroButton.TabIndex = 3;
-            this.libroButton.Text = "Stampa Libro";
+            this.libroButton.Text = "Info Libro";
             this.libroButton.UseVisualStyleBackColor = true;
             this.libroButton.Click += new System.EventHandler(this.libroButton_Click);
             // 
             // userButton
             // 
-            this.userButton.Location = new System.Drawing.Point(125, 140);
+            this.userButton.Location = new System.Drawing.Point(248, 14);
             this.userButton.Name = "userButton";
             this.userButton.Size = new System.Drawing.Size(111, 23);
             this.userButton.TabIndex = 4;
-            this.userButton.Text = "Stampa Utente";
+            this.userButton.Text = "Info Utente";
             this.userButton.UseVisualStyleBackColor = true;
             this.userButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBoxLibro
+            // textBox
             // 
-            this.textBoxLibro.Location = new System.Drawing.Point(298, 169);
-            this.textBoxLibro.Name = "textBoxLibro";
-            this.textBoxLibro.Size = new System.Drawing.Size(203, 20);
-            this.textBoxLibro.TabIndex = 5;
-            // 
-            // textBoxPresta
-            // 
-            this.textBoxPresta.Location = new System.Drawing.Point(80, 266);
-            this.textBoxPresta.Name = "textBoxPresta";
-            this.textBoxPresta.Size = new System.Drawing.Size(421, 20);
-            this.textBoxPresta.TabIndex = 6;
-            // 
-            // textBoxNome
-            // 
-            this.textBoxNome.Location = new System.Drawing.Point(80, 169);
-            this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(212, 20);
-            this.textBoxNome.TabIndex = 7;
-            this.textBoxNome.TextChanged += new System.EventHandler(this.textBoxNome_TextChanged);
+            this.textBox.Location = new System.Drawing.Point(71, 153);
+            this.textBox.Multiline = true;
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(470, 159);
+            this.textBox.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 324);
-            this.Controls.Add(this.textBoxNome);
-            this.Controls.Add(this.textBoxPresta);
-            this.Controls.Add(this.textBoxLibro);
+            this.Controls.Add(this.textBox);
             this.Controls.Add(this.userButton);
             this.Controls.Add(this.libroButton);
             this.Controls.Add(this.prestaButton);
@@ -136,9 +118,7 @@
         private System.Windows.Forms.Button prestaButton;
         private System.Windows.Forms.Button libroButton;
         private System.Windows.Forms.Button userButton;
-        private System.Windows.Forms.TextBox textBoxLibro;
-        private System.Windows.Forms.TextBox textBoxPresta;
-        private System.Windows.Forms.TextBox textBoxNome;
+        private System.Windows.Forms.TextBox textBox;
     }
 }
 

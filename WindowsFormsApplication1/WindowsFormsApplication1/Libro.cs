@@ -10,57 +10,49 @@ namespace WindowsFormsApplication1
 {
     class Libro
     {
-        private string _titolo;
-        public string titolo { get { return _titolo; } }
 
-        private string _autore;
-        public string autore { get { return _autore; } }
+        public string titolo { get; set; }
 
-        private string _genere;
-        public string genere { get { return _genere; } }
+        public string autore { get; set; }
 
-        private string _isbn;
-        public string isbn { get { return _isbn; } }
+        public string genere { get; set; }
 
-        private Boolean _prestato; //sola lettura dice se è prestato o no 
-        public Boolean prestato { set { } get { return _prestato; } }
+        public string isbn { get; set; }
 
-        public override string ToString()  //no input, output string
+        public Boolean prestato { get; set; }
+
+        public override string ToString()
         {
-            string output = titolo + " " + isbn;
-            return output;
+            return  titolo + ", "  + autore;
+            
         }
 
-        public string Describe() //no input, output string
+        public string Describe()
         {
-            string output = titolo + " " + genere + " " + autore + " " + isbn;
-            return output;
+            return "titolo: " + titolo + ", genere: " + genere + Environment.NewLine + 
+                "Autore: " + autore + ", isbn: " + isbn;
         }
 
-        public string Presta(User ricevitore) //input user , output string
-        {
-            string output;
-            if (prestato)
+        public bool Presta(User u)
+        { 
+            if ((!prestato) && (u.listaLibri.Count < 6))
             {
-                output = "questo libro e' gia' stato prestato.";
-                return output;
+                u.listaLibri.Add(this);
+                prestato = true;
+                return true;
             }
             else
             {
-               // ricevitore.libriPrestati.Add(this);
-                prestato = true;
-                output = "questo libro e' stato presato a " + ricevitore.ToString();
-                return output;
+                return false;
             }
         }
 
-        public Libro(string titolo, string autore, string genere, string isbn, bool prestato) //costruttore
+        public Libro(string titolo, string autore, string genere, string isbn) //costruttore
         {
-            _titolo = titolo;
-            _autore = autore;
-            _genere = genere;
-            _isbn = isbn;
-            _prestato = prestato;
+            this.titolo = titolo;
+            this.autore = autore;
+            this.genere = genere;
+            this.isbn = isbn;
         }
     }
 }
