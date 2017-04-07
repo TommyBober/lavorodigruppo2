@@ -34,17 +34,13 @@ namespace WindowsFormsApplication1
 
         public string DescribeBook()
         {
-            string output = "";
-            if (listaLibri.Count == 0)
+            string output = "" ;
+            
+            foreach (Libro l in listaLibri)
             {
+                 output += l.ToString() + Environment.NewLine;
             }
-            else
-            {
-                foreach (Libro l in listaLibri)
-                {
-                    output += l.ToString() + Environment.NewLine;
-                }
-            }
+            
             return output;
         }
 
